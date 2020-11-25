@@ -4,6 +4,7 @@ import { Box, Typography } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const useStyles = makeStyles((theme) => ({
     footer: {
@@ -24,6 +25,7 @@ const Footer = () => {
             <Box>
                 <Link href="https://www.facebook.com/suren.tsaghikyan" target="_blank"><FacebookIcon style={{ marginRight: "5px" }} /></Link>
                 <Link href="https://www.linkedin.com/in/suren-tsaghikyan-190a42198/" target="_blank"><LinkedInIcon style={{ marginRight: "5px" }} /></Link>
+                <Link href="https://www.instagram.com/suren_tsaghikyan/" target="_blank"><InstagramIcon style={{ marginRight: "5px" }} /></Link>
             </Box>
             <Typography style={{ marginTop: "10px" }} paragraph>&copy; {new Date().getFullYear()} All Rights Reserved.</Typography>
         </Box>
