@@ -13,9 +13,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        maxHeight: "calc(100vh - 240px)",
+        maxHeight: "calc(100vh - 320px)",
         overflowY: "auto",
-        marginTop: theme.spacing(15),
         border: "1px solid grey",
     },
     song: {

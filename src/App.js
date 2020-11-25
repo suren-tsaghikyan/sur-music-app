@@ -7,6 +7,8 @@ import PlayLists from "./components/PlayLists";
 import { Provider } from 'react-redux';
 import store from "./store/Reducers";
 import Grid from '@material-ui/core/Grid';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -14,6 +16,7 @@ const App = () => {
         <Provider store={store}>
             <Box component="div">
                 <Container>
+                    <Header />
                     <Grid container alignItems="center">
                         <Grid item lg={8} xs={12}>
                             <Player />
@@ -22,6 +25,7 @@ const App = () => {
                             <PlayLists />
                         </Grid>
                     </Grid>
+                    <Footer />
                 </Container>
             </Box>
         </Provider>
