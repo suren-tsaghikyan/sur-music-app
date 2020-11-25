@@ -46,7 +46,9 @@ const SongReducer = (state = initialState, action) => {
                 return { ...state, activeSong: state.songs[0], activeSongIndex: 0}
             }
         case 'SlideIn': 
-            return {...state, slideIn: action.bool}
+            return { ...state, slideIn: action.bool }
+        case 'RemoveSong': 
+            return {...state, songs: state.songs.filter(s => s.id !== action.id), activeSong: state.activeSong.id === action.id ? {} : state.activeSong}
         default: 
             return state
     }

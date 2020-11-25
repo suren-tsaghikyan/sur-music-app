@@ -63,7 +63,7 @@ const Player = () => {
 
     return (
         <Box component="div" mt={10}>
-            {activeSong.id ? 
+            {Object.keys(activeSong).length !== 0 ? 
                 <Grow in={slideIn}>
                     <Grid container spacing={5} justify="center">
                         <Grid item lg={12} xs={12}>

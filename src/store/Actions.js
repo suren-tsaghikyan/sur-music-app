@@ -9,3 +9,7 @@ export const NextSong = (index) => {
 export const SlideIn = (bool) => {
     return { type: "SlideIn", bool};
 }
+
+export const RemoveSong = (id) => {
+    return { type: "RemoveSong", id};
+}
