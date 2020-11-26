@@ -1,5 +1,5 @@
 import Box from "@material-ui/core/Box";
-import React from "react";
+import React, { useRef } from "react";
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
@@ -62,6 +62,32 @@ const Player = () => {
             dispatch(SlideIn(true))
         }, 500);
     }
+
+    const avatarRef = useRef();
+
+    const getRotationValue = () => {
+        var st = window.getComputedStyle(avatarRef.current, null);
+        var tr = st.getPropertyValue("-webkit-transform") ||
+                st.getPropertyValue("-moz-transform") ||
+                st.getPropertyValue("-ms-transform") ||
+                st.getPropertyValue("-o-transform") ||
+                st.getPropertyValue("transform") ||
+                "FAIL";
+
+        var values = tr.split('(')[1].split(')')[0].split(',');
+        var a = values[0];
+        var b = values[1];
+
+        var scale = Math.sqrt(a*a + b*b);
+        var sin = b/scale;
+        return Math.round(Math.atan2(b, a) * (180/Math.PI));
+    }
+
+    const pauseSong = () => {
+        const angle = getRotationValue();
+        avatarRef.current.style.transform = `rotate(${angle}deg)`
+        dispatch(PauseSong())
+    }
     
 
     return (
@@ -70,7 +96,7 @@ const Player = () => {
                 <Grow in={slideIn}>
                     <Grid container spacing={5} justify="center">
                         <Grid item lg={12} xs={12}>
-                            <Avatar alt="Remy Sharp" variant="rounded" src={activeSong.img} className={`${classes.large} ${!paused && 'animateImage'}`} />
+                            <Avatar ref={avatarRef} alt="Remy Sharp" variant="rounded" src={activeSong.img} className={`${classes.large} ${!paused && 'animateImage'}`} />
                         </Grid>
                         <Grid item lg={10} xs={12}>
                             <Box component="div" className={classes.songDetailsActions}>
@@ -83,7 +109,7 @@ const Player = () => {
                                         autoPlay
                                         src={activeSong.src}
                                         onEnded={() => handleEnded(activeSongIndex)}
-                                        onPause={() => dispatch(PauseSong())}
+                                        onPause={pauseSong}
                                         onPlay={() => dispatch(PlaySong())}
                                     />
                                 </Box>
