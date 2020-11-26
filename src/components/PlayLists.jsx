@@ -3,7 +3,7 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { AppBar, Button, Divider } from "@material-ui/core";
+import { AppBar, Button } from "@material-ui/core";
 import { useSelector, useDispatch } from 'react-redux';
 import { RemoveSong, SearchSong, SelectSong, SlideIn } from "../store/Actions";
 import Menu from '@material-ui/core/Menu';
@@ -16,6 +16,8 @@ const useStyles = makeStyles((theme) => ({
     root: {
         maxHeight: "calc(100vh - 320px)",
         overflowY: "auto",
+        boxShadow: "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
+        padding: "0 20px",
     },
     song: {
         display: "grid",
@@ -37,8 +39,12 @@ const useStyles = makeStyles((theme) => ({
     },
     button: {
         width: "100%",
+        borderRadius: "20px",
         "&.active": {
             background: '#1a1b1b',
+        },
+        "&:hover": {
+            boxShadow: "0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)",
         },
     },
     searchInput: {
@@ -46,6 +52,8 @@ const useStyles = makeStyles((theme) => ({
     },
     appbar: {
         backgroundColor: "#282c34!important",
+        boxShadow: "none!important",
+        marginBottom: 0,
     }
 }));
 
@@ -124,6 +132,7 @@ const PlayLists = () => {
                             </Button>
                         </Tooltip>
                         <Menu
+                            className="notInterested"
                             keepMounted
                             open={state.mouseY !== null}
                             onClose={handleClose}
@@ -136,9 +145,6 @@ const PlayLists = () => {
                         >
                             <MenuItem onClick={() => handleClose(songId)}><DeleteIcon color="secondary" style={{ marginRight: "5px" }} /> Not Interested</MenuItem>
                         </Menu>
-                        {songs.length - 1 > index &&
-                            <Divider style={{ background: "grey" }} />
-                        }
                     </React.Fragment>
                 )
             })}

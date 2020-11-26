@@ -21,12 +21,6 @@ const Footer = () => {
     const classes = useStyles();
     return (
         <Box className={classes.footer} id="footer">
-            <Typography style={{ marginTop: "10px" }} paragraph>Follow me on:</Typography>
-            <Box>
-                <Link href="https://www.facebook.com/suren.tsaghikyan" target="_blank"><FacebookIcon style={{ marginRight: "5px" }} /></Link>
-                <Link href="https://www.linkedin.com/in/suren-tsaghikyan-190a42198/" target="_blank"><LinkedInIcon style={{ marginRight: "5px" }} /></Link>
-                <Link href="https://www.instagram.com/suren_tsaghikyan/" target="_blank"><InstagramIcon style={{ marginRight: "5px" }} /></Link>
-            </Box>
             <Typography style={{ marginTop: "10px" }} paragraph>&copy; {new Date().getFullYear()} All Rights Reserved.</Typography>
         </Box>
     )

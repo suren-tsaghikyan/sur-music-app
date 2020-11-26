@@ -3,12 +3,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import logo from "../assets/logo.png"
 import { Avatar, Box } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
-import PhoneIcon from '@material-ui/icons/Phone';
-import EmailIcon from '@material-ui/icons/Email';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles((theme) => ({
     toolbar: {
@@ -44,8 +45,15 @@ const Header = () => {
                     <Avatar variant="rounded" alt="Site Logo" src={logo} className={classes.large} />
                 </Typography>
                 <Box className={classes.contact}>
-                    <Link href="tel:+37493848607"><PhoneIcon style={{ marginRight: "5px" }} /> (+374) 93-848-607</Link>
-                    <Link href="mailto:stsaghikyan@gmail.com"><EmailIcon style={{ marginRight: "5px" }} /> stsaghikyan@gmail.com</Link>
+                    <Tooltip title="Facebook" arrow placement="bottom">
+                        <Link href="https://www.facebook.com/suren.tsaghikyan" target="_blank"><FacebookIcon /></Link>
+                    </Tooltip>
+                    <Tooltip title="Linkedin" arrow placement="bottom">
+                        <Link href="https://www.linkedin.com/in/suren-tsaghikyan-190a42198/" target="_blank"><LinkedInIcon /></Link>
+                    </Tooltip>
+                    <Tooltip title="Instagram" arrow placement="bottom">
+                        <Link href="https://www.instagram.com/suren_tsaghikyan/" target="_blank"><InstagramIcon /></Link>
+                    </Tooltip>
                 </Box>
             </Toolbar>
         </AppBar>

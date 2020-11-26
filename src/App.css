@@ -40,31 +40,28 @@ h6 {
   background: #56B5AC; 
 }
 
-header a {
-  text-decoration: none;
-  color: #56B5AC!important;
-  border: 1px solid #56B5AC!important;
-  border-radius: 30px;
-  padding: 10px 20px;
-  transition: .5s;
-  display: inherit;
-  margin-left: 10px!important;
-}
-
-header a:hover {
-  text-decoration: none!important;
-  background-color:  #56B5AC!important;
-  color: #fff!important;
-}
-
-
 header {
   background-color: transparent!important;
-  box-shadow: none!important;
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)!important;
+  margin-bottom: 50px;
 }
 
-#footer a {
+header a {
   color: #56B5AC!important;
+}
+
+header a svg {
+  font-size: 35px!important;
+  margin-left: 10px;
+}
+
+#footer {
+  box-shadow: 0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)!important;
+}
+
+.notInterested .MuiMenu-paper {
+  background-color: #282c34!important;
+  color: #fff!important;
 }
 
 .rhap_container {
