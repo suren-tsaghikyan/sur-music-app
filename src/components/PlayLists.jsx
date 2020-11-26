@@ -29,6 +29,7 @@ const useStyles = makeStyles((theme) => ({
         textTransform: "capitalize",
         [theme.breakpoints.down('xs')]: {
             textAlign: "center",
+            gridTemplateColumns: "50px auto 50px",
         },
     },
     large: {
@@ -36,6 +37,10 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(10),
         border: "2px #56B5AC solid",
         borderRadius: "50%",
+        [theme.breakpoints.down('xs')]: {
+            width: "50px",
+            height: "50px",
+        },
     },
     button: {
         width: "100%",
@@ -54,7 +59,27 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#282c34!important",
         boxShadow: "none!important",
         marginBottom: 0,
-    }
+    },
+    songDuration: {
+        color: "grey",
+        marginBottom: 0,
+        textAlign: "center",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: "12px",
+        },
+    },
+    songTitle: {
+        color: "grey",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: "12px",
+        },
+    },
+    singerName: {
+        color: "white",
+        [theme.breakpoints.down('xs')]: {
+            fontSize: "16px",
+        },
+    },
 }));
 
 const PlayLists = () => {
@@ -122,11 +147,11 @@ const PlayLists = () => {
                                         <Avatar alt={song.singer} variant="rounded" src={song.img} className={classes.large} />
                                     </Box>
                                     <Box component="div">
-                                        <Typography variant="h6" style={{ color: "white" }}>{song.singer}</Typography>
-                                        <Typography paragraph style={{ color: "grey" }}>{song.title}</Typography>
+                                        <Typography variant="h6" className={classes.singerName}>{song.singer}</Typography>
+                                        <Typography paragraph className={classes.songTitle}>{song.title}</Typography>
                                     </Box>
                                     <Box component="div">
-                                        <Typography paragraph style={{ color: "grey", marginBottom: 0, textAlign: "center" }}>{song.duration}</Typography>
+                                        <Typography paragraph className={classes.songDuration}>{song.duration}</Typography>
                                     </Box>
                                 </Box>
                             </Button>

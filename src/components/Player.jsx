@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
     },
+    chooseSong: {
+        [theme.breakpoints.down('xs')]: {
+            fontSize: "20px",
+            marginBottom: "50px",
+        },
+    },
 }));
 
 const Player = () => {
@@ -92,7 +98,7 @@ const Player = () => {
                     </Grid>
                 </Grow> :
                 <Box component="div" textAlign="center" style={{ color: "grey" }}>
-                    <Typography variant="h4">Please choose a song...</Typography>
+                    <Typography variant="h4" className={classes.chooseSong}>Please choose a song...</Typography>
                 </Box>
             }
         </Box>
