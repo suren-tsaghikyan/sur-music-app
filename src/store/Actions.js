@@ -13,3 +13,15 @@ export const SlideIn = (bool) => {
 export const RemoveSong = (id) => {
     return { type: "RemoveSong", id};
 }
+
+export const PauseSong = () => {
+    return { type: "PauseSong"};
+}
+
+export const PlaySong = () => {
+    return { type: "PlaySong"};
+}
+
+export const SearchSong = (value) => {
+    return { type: "SearchSong", value};
+}

@@ -33,6 +33,7 @@ let initialState = {
     activeSong: {},
     activeSongIndex: 0,
     slideIn: false,
+    paused: false,
 }
 
 const SongReducer = (state = initialState, action) => {
@@ -48,7 +49,20 @@ const SongReducer = (state = initialState, action) => {
         case 'SlideIn': 
             return { ...state, slideIn: action.bool }
         case 'RemoveSong': 
-            return {...state, songs: state.songs.filter(s => s.id !== action.id), activeSong: state.activeSong.id === action.id ? {} : state.activeSong}
+            return { ...state, songs: state.songs.filter(s => s.id !== action.id), activeSong: state.activeSong.id === action.id ? {} : state.activeSong }
+        case 'PauseSong':
+            return { ...state, paused: true }
+        case 'PlaySong':
+            return { ...state, paused: false }
+        case 'SearchSong': {
+            return {
+                ...state, songs:
+                    initialState.songs.filter(s =>
+                        s.singer.toLowerCase().includes(action.value.toLowerCase()) ||
+                        s.title.toLowerCase().includes(action.value.toLowerCase())
+                    )
+            }
+        }
         default: 
             return state
     }

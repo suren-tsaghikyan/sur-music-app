@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { useSelector, useDispatch } from 'react-redux';
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { NextSong, SlideIn } from "../store/Actions";
+import { NextSong, PauseSong, PlaySong, SlideIn } from "../store/Actions";
 import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +50,9 @@ const Player = () => {
     const slideIn = useSelector((state) => {
         return state.SongReducer.slideIn
     })
+    const paused = useSelector((state) => {
+        return state.SongReducer.paused
+    })
 
     const handleEnded = (idx) => {
         dispatch(SlideIn(false))
@@ -67,7 +70,7 @@ const Player = () => {
                 <Grow in={slideIn}>
                     <Grid container spacing={5} justify="center">
                         <Grid item lg={12} xs={12}>
-                            <Avatar alt="Remy Sharp" variant="rounded" src={activeSong.img} className={`${classes.large} animateImage`} />
+                            <Avatar alt="Remy Sharp" variant="rounded" src={activeSong.img} className={`${classes.large} ${!paused && 'animateImage'}`} />
                         </Grid>
                         <Grid item lg={10} xs={12}>
                             <Box component="div" className={classes.songDetailsActions}>
@@ -80,6 +83,8 @@ const Player = () => {
                                         autoPlay
                                         src={activeSong.src}
                                         onEnded={() => handleEnded(activeSongIndex)}
+                                        onPause={() => dispatch(PauseSong())}
+                                        onPlay={() => dispatch(PlaySong())}
                                     />
                                 </Box>
                             </Box>

@@ -52,8 +52,8 @@ const App = () => {
                     <Header />
                     <AppBar position="static">
                         <Tabs value={value} onChange={handleChange} centered>
-                        <Tab label="Audios" {...a11yProps(0)} />
-                        <Tab label="Videos" {...a11yProps(1)} />
+                        <Tab label="All Songs" {...a11yProps(0)} />
+                        <Tab label="Upload a new song" {...a11yProps(1)} />
                         </Tabs>
                     </AppBar>
                     <TabPanel value={value} index={0}>
@@ -67,14 +67,7 @@ const App = () => {
                         </Grid>
                     </TabPanel>
                     <TabPanel value={value} index={1}>
-                        <Grid container alignItems="center">
-                            <Grid item lg={8} xs={12}>
-                                <Player />
-                            </Grid>
-                            <Grid item lg={4} xs={12}>
-                                <PlayLists />
-                            </Grid>
-                        </Grid>
+                        Upload
                     </TabPanel>
                     <Footer />
                 </Container>

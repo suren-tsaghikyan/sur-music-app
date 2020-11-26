@@ -3,19 +3,19 @@ import Box from "@material-ui/core/Box";
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import { Button, Divider } from "@material-ui/core";
+import { AppBar, Button, Divider } from "@material-ui/core";
 import { useSelector, useDispatch } from 'react-redux';
-import { RemoveSong, SelectSong, SlideIn } from "../store/Actions";
+import { RemoveSong, SearchSong, SelectSong, SlideIn } from "../store/Actions";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
+import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         maxHeight: "calc(100vh - 320px)",
         overflowY: "auto",
-        border: "1px solid grey",
     },
     song: {
         display: "grid",
@@ -41,6 +41,12 @@ const useStyles = makeStyles((theme) => ({
             background: '#1a1b1b',
         },
     },
+    searchInput: {
+        width: "100%",
+    },
+    appbar: {
+        backgroundColor: "#282c34!important",
+    }
 }));
 
 const PlayLists = () => {
@@ -86,6 +92,14 @@ const PlayLists = () => {
 
     return (
         <Box component="div" className={classes.root}>
+            <AppBar position="sticky" className={classes.appbar}>
+                <TextField
+                    id="standard-basic"
+                    label="Search song..."
+                    className={classes.searchInput}
+                    onInput={(e) => dispatch(SearchSong(e.target.value))}
+                />
+            </AppBar>
             {songs.map((song, index) => {
                 return (
                     <React.Fragment key={song.id}>
