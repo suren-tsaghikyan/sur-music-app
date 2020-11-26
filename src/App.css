@@ -18,32 +18,6 @@ h6 {
   color: #56B5AC!important;
 }
 
-header a {
-  text-decoration: none;
-  color: #56B5AC!important;
-  border: 1px solid #56B5AC!important;
-  border-radius: 30px;
-  padding: 10px 20px;
-  transition: .5s;
-  display: inherit;
-  margin-left: 10px!important;
-}
-
-header a:hover {
-  text-decoration: none!important;
-  background-color:  #56B5AC!important;
-  color: #fff!important;
-}
-
-#footer a {
-  color: #56B5AC!important;
-}
-
-header {
-  background-color: transparent!important;
-  box-shadow: none!important;
-}
-
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -66,6 +40,33 @@ header {
   background: #56B5AC; 
 }
 
+header a {
+  text-decoration: none;
+  color: #56B5AC!important;
+  border: 1px solid #56B5AC!important;
+  border-radius: 30px;
+  padding: 10px 20px;
+  transition: .5s;
+  display: inherit;
+  margin-left: 10px!important;
+}
+
+header a:hover {
+  text-decoration: none!important;
+  background-color:  #56B5AC!important;
+  color: #fff!important;
+}
+
+
+header {
+  background-color: transparent!important;
+  box-shadow: none!important;
+}
+
+#footer a {
+  color: #56B5AC!important;
+}
+
 .rhap_container {
   background-color: transparent!important;
   box-shadow: none!important;
@@ -77,6 +78,10 @@ header {
 
 .animateImage {
   animation: pulse 2s linear infinite, rotate 10s linear infinite;
+}
+
+.MuiTabs-indicator {
+  background-color: #56B5AC!important;
 }
 
 @keyframes pulse {
