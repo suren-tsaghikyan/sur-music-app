@@ -99,6 +99,12 @@ header {
 .MuiInputBase-root {
   color: #fff!important;
 }
+.paused{
+    -webkit-animation-play-state:paused;
+    -moz-animation-play-state:paused;
+    -o-animation-play-state:paused; 
+    animation-play-state:paused;
+}
 
 @keyframes pulse {
   0% {
@@ -113,10 +119,7 @@ header {
 }
 
 @keyframes rotate {
-  from {
-    /* transform: rotate(0deg); */
-  }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }

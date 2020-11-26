@@ -62,32 +62,6 @@ const Player = () => {
             dispatch(SlideIn(true))
         }, 500);
     }
-
-    const avatarRef = useRef();
-
-    const getRotationValue = () => {
-        var st = window.getComputedStyle(avatarRef.current, null);
-        var tr = st.getPropertyValue("-webkit-transform") ||
-                st.getPropertyValue("-moz-transform") ||
-                st.getPropertyValue("-ms-transform") ||
-                st.getPropertyValue("-o-transform") ||
-                st.getPropertyValue("transform") ||
-                "FAIL";
-
-        var values = tr.split('(')[1].split(')')[0].split(',');
-        var a = values[0];
-        var b = values[1];
-
-        var scale = Math.sqrt(a*a + b*b);
-        var sin = b/scale;
-        return Math.round(Math.atan2(b, a) * (180/Math.PI));
-    }
-
-    const pauseSong = () => {
-        const angle = getRotationValue();
-        avatarRef.current.style.transform = `rotate(${angle}deg)`
-        dispatch(PauseSong())
-    }
     
 
     return (
@@ -96,7 +70,7 @@ const Player = () => {
                 <Grow in={slideIn}>
                     <Grid container spacing={5} justify="center">
                         <Grid item lg={12} xs={12}>
-                            <Avatar ref={avatarRef} alt="Remy Sharp" variant="rounded" src={activeSong.img} className={`${classes.large} ${!paused && 'animateImage'}`} />
+                            <Avatar alt={activeSong.title} variant="rounded" src={activeSong.img} className={`animateImage ${classes.large} ${paused && 'paused'}`} />
                         </Grid>
                         <Grid item lg={10} xs={12}>
                             <Box component="div" className={classes.songDetailsActions}>
@@ -109,7 +83,7 @@ const Player = () => {
                                         autoPlay
                                         src={activeSong.src}
                                         onEnded={() => handleEnded(activeSongIndex)}
-                                        onPause={pauseSong}
+                                        onPause={() => dispatch(PauseSong())}
                                         onPlay={() => dispatch(PlaySong())}
                                     />
                                 </Box>
